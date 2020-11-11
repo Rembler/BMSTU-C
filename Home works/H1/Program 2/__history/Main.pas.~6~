@@ -1,0 +1,118 @@
+unit Main;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    Image1: TImage;
+    Timer1: TTimer;
+    Image2: TImage;
+    Button1: TButton;
+    Image3: TImage;
+    Timer2: TTimer;
+    procedure Timer1Timer(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Timer2Timer(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+var a:array [0..3,1..2] of integer;
+    t:real=0;
+    b:array [1..6,1..6] of integer;
+    n:real=0;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  with image2.Canvas do
+  begin
+    pen.Color:=clred;
+    arc(45,45,55,55,50,45,45,50);
+    arc(45,40,65,60,45,50,55,60);
+    arc(40,30,70,60,55,60,70,45);
+    arc(30,25,70,65,70,45,50,25);
+    arc(25,25,75,75,50,25,25,50);
+    arc(25,20,85,80,25,50,55,80);
+  end;
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+var i:integer;
+begin
+  for i := 0 to 3 do
+  begin
+    a[i,1]:=50+round(30*cos(t+i*pi/2));
+    a[i,2]:=50+round(30*sin(t+i*pi/2));
+  end;
+  with image1.Canvas do
+  begin
+    pen.color:=clwhite;
+    brush.Color:=clwhite;
+    rectangle(0,0,100,100);
+    pen.color:=clred;
+    moveto(a[3,1],a[3,2]);
+    for i := 0 to 3 do
+      lineto(a[i,1],a[i,2]);
+  end;
+  t:=t+0.1;
+  if (t>=2*pi) then
+    t:=0;
+end;
+
+procedure TForm1.Timer2Timer(Sender: TObject);
+var i:integer;
+begin
+  b[1,1]:=50;
+  b[1,2]:=50;
+  b[5,1]:=50;
+  b[5,2]:=50;
+  for i := 2 to 4 do
+  begin
+    if (i=3) then
+    begin
+      b[i,1]:=50+round(sqrt(50)*cos(n-(i-2)*pi/4));
+      b[i,2]:=50+round(sqrt(50)*sin(n-(i-2)*pi/4));
+    end
+    else
+    begin
+      b[i,1]:=50+round(5*cos(n-(i-2)*pi/4));
+      b[i,2]:=50+round(5*sin(n-(i-2)*pi/4));
+    end;
+  end;
+  b[6,1]:=b[2,1];
+  b[6,2]:=b[2,2];
+  for i := 1 to 6 do
+  begin
+    b[i,3]:=b[i,1]+round(i*5*cos(n+(2*pi-i*pi/2)));
+    b[i,4]:=b[i,2]+round(i*5*sin(n+(2*pi-i*pi/2)));
+    b[i,5]:=b[i,1]+round(i*5*cos(n+(3*pi/2-(i mod 4)*pi/2)));
+    b[i,6]:=b[i,2]+round(i*5*sin(n+(3*pi/2-(i mod 4)*pi/2)));
+  end;
+  with image3.Canvas do
+  begin
+    pen.color:=clwhite;
+    brush.color:=clwhite;
+    rectangle(0,0,100,100);
+    pen.Color:=clred;
+    for i := 1 to 6 do
+      arc(b[i,1]-5*i,b[i,2]-5*i,b[i,1]+5*i,b[i,2]+5*i,b[i,3],b[i,4],b[i,5],b[i,6]);
+  end;
+  n:=n+0.1;
+  if (n>=2*pi) then
+    n:=0;
+end;
+
+end.

@@ -1,0 +1,13 @@
+program Moving;
+
+uses
+  Forms,
+  FigStor in 'FigStor.pas',
+  Main in 'Main.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.Run;
+end.

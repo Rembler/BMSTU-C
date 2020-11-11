@@ -1,0 +1,96 @@
+unit Addit;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Del;
+
+type
+  TForm2 = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Button1: TButton;
+    Button2: TButton;
+    Error: TMemo;
+    procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure ErrorClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+
+var adel:elem;
+
+procedure TForm2.Button1Click(Sender: TObject);
+var key:boolean;
+    bun:elem;
+begin
+  key:=false;
+  if (edit5.Text<>'') and (edit2.Text<>'') and (edit4.Text<>'') then
+  begin
+    seek(men,0);
+    while (not eof(men)) and (key=false) do
+    begin
+      read(men,bun);
+      if (bun.num=strtoint(edit5.text)) then
+        key:=true;
+    end;
+    if (key=true) then
+    begin
+      error.Visible:=true;
+      button1.Enabled:=false;
+    end
+    else
+    begin
+      adel.name:=edit2.Text;
+      adel.num:=strtoint(edit5.Text);
+      adel.wei:=StrToFloat(edit4.Text);
+      adel.con:=edit3.Text;
+      write(men,adel);
+      edit5.Text:='';
+      edit2.Text:='';
+      edit4.Text:='';
+    end;
+  end;
+end;
+
+procedure TForm2.Button2Click(Sender: TObject);
+begin
+  edit3.ReadOnly:=false;
+  if (edit3.text='Conductor') then
+    edit3.Text:='Semiconductor'
+  else if (edit3.Text='Semiconductor') then
+      edit3.Text:='Insulator'
+      else edit3.Text:='Conductor';
+  edit3.ReadOnly:=true;
+end;
+
+procedure TForm2.ErrorClick(Sender: TObject);
+begin
+  error.Visible:=false;
+  button1.Enabled:=true;
+end;
+
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+  edit3.ReadOnly:=true;
+end;
+
+end.

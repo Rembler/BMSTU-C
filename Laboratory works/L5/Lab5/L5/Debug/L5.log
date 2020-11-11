@@ -1,0 +1,4 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (L5.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  L5.cpp
+E:\HW\Laboratory works\S2\L5\Lab5\L5\L5.cpp(31,11): warning C4477: "printf": в строке форматирования "%X" требуется аргумент типа "unsigned int", но вариативный аргумент "1" имеет тип "char *"
+  L5.vcxproj -> E:\HW\Laboratory works\S2\L5\Lab5\Debug\Lab5.exe

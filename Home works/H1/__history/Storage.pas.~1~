@@ -1,0 +1,14 @@
+unit Storage;
+
+interface
+
+uses ExtCtrls;
+
+type line=object
+  xs,ys,xe,ye:integer;
+  can:timage;
+end;
+
+implementation
+
+end.

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020.02.16 19:06:15.001.pas,C:\Users\Rembler-Koto\Documents\Borland Studio Projects\Unit1.pas=E:\HW\Home works\S2H1\Program 2\Main.pas</Transaction>
+    <Transaction>2020.02.16 19:06:15.002.dfm,C:\Users\Rembler-Koto\Documents\Borland Studio Projects\Unit1.dfm=E:\HW\Home works\S2H1\Program 2\Main.dfm</Transaction>
+    <Transaction>2020.02.16 19:06:17.999.bdsproj,C:\Users\Rembler-Koto\Documents\Borland Studio Projects\Project1.bdsproj=E:\HW\Home works\S2H1\Program 2\Moving.bdsproj</Transaction>
+    <Transaction>2020.02.18 09:09:11.947.pas,E:\HW\Home works\S2H1\Program 2\Unit1.pas=E:\HW\Home works\S2H1\Program 2\FigStor.pas</Transaction>
+    <Transaction>2020.02.18 09:55:36.592.pas,E:\HW\Home works\S2H1\Program 2\Main.pas=E:\HW\Home works\S2H1\Copy.pas</Transaction>
+    <Transaction>2020.02.18 09:55:36.592.dfm,E:\HW\Home works\S2H1\Program 2\Main.dfm=E:\HW\Home works\S2H1\Copy.dfm</Transaction>
+    <Transaction>2020.02.20 10:46:46.291.pas,E:\HW\Home works\S2H1\Copy.pas=</Transaction>
+    <Transaction>2020.02.20 10:46:46.293.dfm,E:\HW\Home works\S2H1\Copy.dfm=</Transaction>
+  </Transactions>
+</BorlandProject>
